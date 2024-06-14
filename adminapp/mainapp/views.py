@@ -70,9 +70,19 @@ class AnswerViewSet(viewsets.ViewSet,
     @action(methods=['get'], detail=False, url_path='predict')
     def predict(self, request):
         text = request.GET.get('text', '')  
-        client = Client("ShynBui/Vietnamese_classification")
+        client = Client("toiquangle1234/Vietnamese_music_classification")
         result = client.predict(
                 text=text,
+                api_name="/predict"
+        )
+        return Response(result)
+
+    @action(methods=['get'], detail=False, url_path='music_suggest')
+    def music_suggest(self, request):
+        text = request.GET.get('text', '')  
+        client = Client("toiquangle1234/Music_suggest")
+        result = client.predict(
+                list_text=text,
                 api_name="/predict"
         )
         return Response(result)

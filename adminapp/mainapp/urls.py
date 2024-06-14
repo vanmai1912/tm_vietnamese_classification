@@ -15,5 +15,6 @@ urlpatterns = [
     path('', include(router.urls)),
     path('oauth2-info/', views.AuthInfo.as_view()),
     path('answers/vietnamese_classification', views.AnswerViewSet.as_view({'get': 'predict'}), name='vietnamese_classification'),
+    path('answers/music_suggest', views.AnswerViewSet.as_view({'get': 'music_suggest'}), name='music_suggest'),
     re_path(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
